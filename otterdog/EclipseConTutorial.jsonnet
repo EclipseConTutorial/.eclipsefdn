@@ -53,12 +53,10 @@ orgs.newOrg('EclipseConTutorial') {
       allow_merge_commit: true,
       allow_update_branch: false,
       delete_branch_on_merge: false,
-      dependabot_alerts_enabled: false,
+      dependabot_alerts_enabled: true,
       has_wiki: false,
       has_projects: false,
       is_template: true,
-      secret_scanning: "disabled",
-      secret_scanning_push_protection: "disabled",
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
       workflows+: {
@@ -157,7 +155,7 @@ orgs.newOrg('EclipseConTutorial') {
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
       workflows+: {
-        default_workflow_permissions: "write",
+        default_workflow_permissions: "read",
       },
       branch_protection_rules: [
          orgs.newBranchProtectionRule('main') {
@@ -171,14 +169,13 @@ orgs.newOrg('EclipseConTutorial') {
       allow_merge_commit: true,
       allow_update_branch: false,
       delete_branch_on_merge: false,
-      dependabot_alerts_enabled: false,
       has_wiki: false,
       has_projects: false,
       is_template: true,
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
       workflows+: {
-        default_workflow_permissions: "write",
+        default_workflow_permissions: "read",
       },
       branch_protection_rules: [
          orgs.newBranchProtectionRule('main') {
@@ -212,8 +209,6 @@ orgs.newOrg('EclipseConTutorial') {
       has_wiki: false,
       has_projects: false,
       is_template: true,
-      secret_scanning: "disabled",
-      secret_scanning_push_protection: "disabled",
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
       workflows+: {
