@@ -57,8 +57,6 @@ orgs.newOrg('EclipseConTutorial') {
       has_wiki: false,
       has_projects: false,
       is_template: true,
-      secret_scanning: "disabled",
-      secret_scanning_push_protection: "disabled",
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
       workflows+: {
@@ -119,7 +117,7 @@ orgs.newOrg('EclipseConTutorial') {
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
       workflows+: {
-        default_workflow_permissions: "write",
+        default_workflow_permissions: "read",
       },
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {
@@ -153,8 +151,9 @@ orgs.newOrg('EclipseConTutorial') {
       has_wiki: false,
       has_projects: false,
       is_template: true,
-      secret_scanning: "disabled",
-      secret_scanning_push_protection: "disabled",
+      # remove these 2 lines to enable secret scanning and push protection.
+      # secret_scanning: "disabled",
+      # secret_scanning_push_protection: "disabled",
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
       workflows+: {
@@ -176,8 +175,6 @@ orgs.newOrg('EclipseConTutorial') {
       has_wiki: false,
       has_projects: false,
       is_template: true,
-      secret_scanning: "disabled",
-      secret_scanning_push_protection: "disabled",
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
       workflows+: {
@@ -215,8 +212,6 @@ orgs.newOrg('EclipseConTutorial') {
       has_wiki: false,
       has_projects: false,
       is_template: true,
-      secret_scanning: "disabled",
-      secret_scanning_push_protection: "disabled",
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
       workflows+: {
