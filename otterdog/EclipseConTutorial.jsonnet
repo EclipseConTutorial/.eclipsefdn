@@ -28,26 +28,22 @@ orgs.newOrg('EclipseConTutorial') {
       has_discussions: true,
       has_issues: false,
       has_wiki: false,
-      has_projects: false,
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "write",
       },
     },
-    orgs.newRepo('test-repo-template') {
+    orgs.newRepo('improved-test-repo') {
       allow_merge_commit: true,
       allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_alerts_enabled: false,
-      has_wiki: false,
       has_projects: false,
+      has_wiki: false,
       is_template: true,
-      secret_scanning: "disabled",
-      secret_scanning_push_protection: "disabled",
+      template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main'),
+      ],
     },
     orgs.newRepo('test-repo-alpha') {
       allow_merge_commit: true,
@@ -55,19 +51,13 @@ orgs.newOrg('EclipseConTutorial') {
       delete_branch_on_merge: false,
       dependabot_security_updates_enabled: true,
       has_wiki: false,
-      has_projects: false,
       is_template: true,
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "read",
-      },
       branch_protection_rules: [
-         orgs.newBranchProtectionRule('main') {
-               # lets set the required number of approvals to 0 to make changes later
-               # on easier for the purpose of this tutorial
-               required_approving_review_count: 0
-         }
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+        },
       ],
     },
     orgs.newRepo('test-repo-beta') {
@@ -75,7 +65,6 @@ orgs.newOrg('EclipseConTutorial') {
       allow_update_branch: false,
       delete_branch_on_merge: false,
       has_wiki: false,
-      has_projects: false,
       is_template: true,
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
@@ -83,110 +72,37 @@ orgs.newOrg('EclipseConTutorial') {
         default_workflow_permissions: "write",
       },
       branch_protection_rules: [
-         orgs.newBranchProtectionRule('main') {
-               # lets set the required number of approvals to 0 to make changes later
-               # on easier for the purpose of this tutorial
-               required_approving_review_count: 0
-         }
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+        },
       ],
-    },
-    orgs.newRepo('test-repo-mu') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_alerts_enabled: false,
-      has_wiki: false,
-      has_projects: false,
-      is_template: true,
-      template_repository: "EclipseConTutorial/test-repo-template",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
     },
     orgs.newRepo('test-repo-delta') {
       allow_merge_commit: true,
       allow_update_branch: false,
       delete_branch_on_merge: false,
-      dependabot_alerts_enabled: true,
       has_wiki: false,
-      has_projects: false,
       is_template: true,
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "read",
-      },
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {
-          # lets set the required number of approvals to 0 to make changes later
-          # on easier for the purpose of this tutorial
-          required_approving_review_count: 0
-        }
+          required_approving_review_count: 0,
+        },
       ],
     },
     orgs.newRepo('test-repo-epsilon') {
       allow_merge_commit: true,
       allow_update_branch: false,
       delete_branch_on_merge: false,
-      dependabot_alerts_enabled: true,
       has_wiki: false,
-      has_projects: false,
-      is_template: true,
-      secret_scanning: "enabled",
-      secret_scanning_push_protection: "enabled",
-      template_repository: "EclipseConTutorial/test-repo-template",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "read",
-      },
-      branch_protection_rules: [
-         orgs.newBranchProtectionRule('main') {
-               # lets set the required number of approvals to 0 to make changes later
-               # on easier for the purpose of this tutorial
-               required_approving_review_count: 0
-         }
-      ],
-    },
-    orgs.newRepo('test-repo-zeta') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      has_wiki: false,
-      has_projects: false,
       is_template: true,
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "read",
-      },
       branch_protection_rules: [
-         orgs.newBranchProtectionRule('main') {
-               # lets set the required number of approvals to 0 to make changes later
-               # on easier for the purpose of this tutorial
-               required_approving_review_count: 0
-         }
-      ],
-    },
-    orgs.newRepo('test-repo-theta') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
-      has_wiki: false,
-      has_projects: false,
-      is_template: true,
-      template_repository: "EclipseConTutorial/test-repo-template",
-      web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "read",
-      },
-      branch_protection_rules: [
-         orgs.newBranchProtectionRule('main') {
-               # lets set the required number of approvals to 0 to make changes later
-               # on easier for the purpose of this tutorial
-               required_approving_review_count: 0
-         }
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+        },
       ],
     },
     orgs.newRepo('test-repo-iota') {
@@ -195,7 +111,6 @@ orgs.newOrg('EclipseConTutorial') {
       delete_branch_on_merge: false,
       dependabot_alerts_enabled: false,
       has_wiki: false,
-      has_projects: false,
       is_template: true,
       secret_scanning: "disabled",
       secret_scanning_push_protection: "disabled",
@@ -211,19 +126,13 @@ orgs.newOrg('EclipseConTutorial') {
       delete_branch_on_merge: false,
       dependabot_alerts_enabled: false,
       has_wiki: false,
-      has_projects: false,
       is_template: true,
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
-      workflows+: {
-        default_workflow_permissions: "read",
-      },
       branch_protection_rules: [
-         orgs.newBranchProtectionRule('main') {
-               # lets set the required number of approvals to 0 to make changes later
-               # on easier for the purpose of this tutorial
-               required_approving_review_count: 0
-         }
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+        },
       ],
     },
     orgs.newRepo('test-repo-lambda') {
@@ -232,7 +141,6 @@ orgs.newOrg('EclipseConTutorial') {
       delete_branch_on_merge: false,
       dependabot_alerts_enabled: false,
       has_wiki: false,
-      has_projects: false,
       is_template: true,
       secret_scanning: "disabled",
       secret_scanning_push_protection: "disabled",
@@ -241,6 +149,62 @@ orgs.newOrg('EclipseConTutorial') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+    },
+    orgs.newRepo('test-repo-mu') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      dependabot_alerts_enabled: false,
+      has_wiki: false,
+      is_template: true,
+      template_repository: "EclipseConTutorial/test-repo-template",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+    },
+    orgs.newRepo('test-repo-template') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      dependabot_alerts_enabled: false,
+      has_wiki: false,
+      is_template: true,
+      secret_scanning: "disabled",
+      secret_scanning_push_protection: "disabled",
+      web_commit_signoff_required: false,
+      workflows+: {
+        default_workflow_permissions: "write",
+      },
+    },
+    orgs.newRepo('test-repo-theta') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      dependabot_security_updates_enabled: true,
+      has_wiki: false,
+      is_template: true,
+      template_repository: "EclipseConTutorial/test-repo-template",
+      web_commit_signoff_required: false,
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+        },
+      ],
+    },
+    orgs.newRepo('test-repo-zeta') {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      has_wiki: false,
+      is_template: true,
+      template_repository: "EclipseConTutorial/test-repo-template",
+      web_commit_signoff_required: false,
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+        },
+      ],
     },
   ],
 }
