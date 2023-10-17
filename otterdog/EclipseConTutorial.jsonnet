@@ -64,13 +64,6 @@ orgs.newOrg('EclipseConTutorial') {
       workflows+: {
         default_workflow_permissions: "write",
       },
-      branch_protection_rules: [
-         orgs.newBranchProtectionRule('main') {
-               # lets set the required number of approvals to 0 to make changes later
-               # on easier for the purpose of this tutorial
-               required_approving_review_count: 0
-         }
-      ],
     },
     orgs.newRepo('test-repo-beta') {
       allow_merge_commit: true,
@@ -80,6 +73,8 @@ orgs.newOrg('EclipseConTutorial') {
       has_wiki: false,
       has_projects: false,
       is_template: true,
+      secret_scanning: "disabled",
+      secret_scanning_push_protection: "disabled",
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
       workflows+: {
@@ -117,18 +112,13 @@ orgs.newOrg('EclipseConTutorial') {
       has_wiki: false,
       has_projects: false,
       is_template: true,
+      secret_scanning: "disabled",
+      secret_scanning_push_protection: "disabled",
       template_repository: "EclipseConTutorial/test-repo-template",
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "write",
       },
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          # lets set the required number of approvals to 0 to make changes later
-          # on easier for the purpose of this tutorial
-          required_approving_review_count: 0
-        }
-      ],
     },
     orgs.newRepo('test-repo-epsilon') {
       allow_merge_commit: true,
@@ -161,6 +151,12 @@ orgs.newOrg('EclipseConTutorial') {
       workflows+: {
         default_workflow_permissions: "write",
       },
+      branch_protection_rules: [
+         orgs.newBranchProtectionRule('main') {
+               # on easier for the purpose of this tutorial
+               required_approving_review_count: 1
+         }
+      ],
     },
     orgs.newRepo('test-repo-theta') {
       allow_merge_commit: true,
