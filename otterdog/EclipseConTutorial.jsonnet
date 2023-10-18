@@ -30,7 +30,7 @@ orgs.newOrg('EclipseConTutorial') {
       has_wiki: false,
       web_commit_signoff_required: false,
       workflows+: {
-        default_workflow_permissions: "write",
+        default_workflow_permissions: "read",
       },
     },
     orgs.newRepo('improved-test-repo') {
